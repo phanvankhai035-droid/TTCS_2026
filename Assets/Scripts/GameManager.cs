@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    private float gameSpeed = 5f ;
+    private float gameSpeed = 6f ;
     [SerializeField]
     private float speedIncrease = 0.15f;
     [SerializeField] private TextMeshProUGUI scoreText;
     private float score = 0;
+    [SerializeField] private TextMeshProUGUI coinText;
+    private int coin = 0;
+    [SerializeField] private TextMeshProUGUI finalScoreText;
+    [SerializeField] private TextMeshProUGUI HighestScoreText;
     [SerializeField] private GameObject scoreTextObject;
+    [SerializeField] private GameObject coinTextObject;
     [SerializeField] private GameObject gameStartMess;
     [SerializeField] private GameObject gameOverMess;
+    [SerializeField] private GameObject finalScoreTextObject;
+    [SerializeField] private GameObject HighestScoreTextObject;
     private bool isGameOver = false;
     private void Awake()
     {
@@ -41,8 +48,14 @@ public class GameManager : MonoBehaviour
         {
             UpdateGameSpeed();
             UpdateScore();
+            UpdateCoin();
+        }
+        else
+        {
+            ReloadScene();
         }
     }
+
 
     private void UpdateGameSpeed()
     {
@@ -59,26 +72,55 @@ public class GameManager : MonoBehaviour
         scoreTextObject.SetActive(false);
         gameStartMess.SetActive(true);
         gameOverMess.SetActive(false);
+        coinTextObject.SetActive(false);
+        finalScoreTextObject.SetActive(false);
+        HighestScoreTextObject.SetActive(false);
     }
     private void HandleStartGameInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if ((Input.GetKeyDown(KeyCode.Return)||Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))&& Time.timeScale == 0)
         {
             Time.timeScale = 1;
             scoreTextObject.SetActive(true);
             gameStartMess.SetActive(false);
+            coinTextObject.SetActive(true);
         }
     }
     public void GameOver()
     {
         isGameOver = true;
         gameOverMess.SetActive(true);
+        scoreTextObject.SetActive(false);
+        coinTextObject.SetActive(false);
+        finalScoreTextObject.SetActive(true);
+        HighestScoreTextObject.SetActive(true);
+
+        int savedHighestScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (score > savedHighestScore)
+        {
+            savedHighestScore = Mathf.FloorToInt(score);
+            PlayerPrefs.SetInt("HighScore", savedHighestScore);
+            PlayerPrefs.Save();
+        }
+        finalScoreText.text = "Score: " + Mathf.FloorToInt(score);
+        HighestScoreText.text = "Best Score: " + savedHighestScore;
         Time.timeScale = 0;
-        StartCoroutine(ReloadScene());
+
     }
-    private IEnumerator ReloadScene()
+    private void ReloadScene()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Input.GetKeyDown(KeyCode.Return)||Input.GetMouseButtonDown(0)||Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+    }
+    public void Addcoin(int points)
+    {
+        coin += points;
+    }
+    private void UpdateCoin()
+    {
+        coinText.text = "Coin: " + coin;
     }
 }

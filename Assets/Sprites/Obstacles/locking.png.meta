@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 00f4f3aee597f6f43aa009b74b9187d7
+guid: e111405c1aa25de4395e38489c22347d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7432858856186537965
-    second: laser_off_0
+      213: 9215678591649236248
+    second: locking_0
   - first:
-      213: 624214426419596862
-    second: laser_off_1
+      213: -4924740480865662978
+    second: locking_1
+  - first:
+      213: -507815737635588601
+    second: locking_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: laser_off_0
+      name: locking_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 326
-        width: 39
-        height: 44
+        x: 1
+        y: 27
+        width: 29
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,19 +121,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de76d9cafb1d62760800000000000000
-      internalID: 7432858856186537965
+      spriteID: 815cc633adaa4ef70800000000000000
+      internalID: 9215678591649236248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_off_1
+      name: locking_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 39
+        x: 51
+        y: 16
+        width: 30
         height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,8 +143,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3e0a6ea6b7a9a800800000000000000
-      internalID: 624214426419596862
+      spriteID: ef7040300aec7abb0800000000000000
+      internalID: -4924740480865662978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: locking_2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 706b0e2f640e3f8f0800000000000000
+      internalID: -507815737635588601
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      laser_off_0: 7432858856186537965
-      laser_off_1: 624214426419596862
+      locking_0: 9215678591649236248
+      locking_1: -4924740480865662978
+      locking_2: -507815737635588601
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

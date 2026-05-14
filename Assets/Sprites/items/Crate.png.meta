@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 00f4f3aee597f6f43aa009b74b9187d7
+guid: c2af877dc6096e940872b51ae3234307
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7432858856186537965
-    second: laser_off_0
-  - first:
-      213: 624214426419596862
-    second: laser_off_1
+      213: -1362058913294850930
+    second: Crate_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: laser_off_0
+      name: Crate_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 326
-        width: 39
-        height: 44
+        y: 0
+        width: 32
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 16, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de76d9cafb1d62760800000000000000
-      internalID: 7432858856186537965
+      spriteID: e84e7e582aef81de0800000000000000
+      internalID: -1362058913294850930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: laser_off_1
+      name: Crate_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 44
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e3e0a6ea6b7a9a800800000000000000
-      internalID: 624214426419596862
+      spriteID: 552882f37a71cf740bd34c5951d2e97b
+      internalID: 2094798051
       vertices: []
       indices: 
       edges: []
@@ -150,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 42cb521a4be9d19428638971a087fc5f
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +157,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      laser_off_0: 7432858856186537965
-      laser_off_1: 624214426419596862
+      Crate_0: -1362058913294850930
+      Crate_1: 2094798051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

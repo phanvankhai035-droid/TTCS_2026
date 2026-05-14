@@ -1,25 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Cấu hình bay")]
-    [SerializeField] private float jetpackForce = 45f; 
-    [SerializeField] private float maxUpwardVelocity = 12f;
-
+    [SerializeField] private float jetpackForce = 11f; 
+    [SerializeField] private float maxUpwardVelocity = 8f;
     private Rigidbody2D rb;
     private bool isThrusting = false;
-
-    [Header("Hiệu ứng")]
     public ParticleSystem jetpackSmoke;
-    [Header("Mặt Đất")]
     private bool isGrounded;
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
-    private float groundCheckRadius= 0.2f;
+    private float groundCheckRadius= 0.15f;
     [SerializeField]
     private LayerMask groundLayer;
+    public GameObject shieldVisual; 
+    private bool isShieldActive = false;
 
 
     void Awake()
@@ -28,7 +26,7 @@ public class PlayerController : MonoBehaviour
         
         rb.freezeRotation = true; 
         
-        rb.gravityScale = 2.0f; 
+        rb.gravityScale = 1.8f; 
     }
 
     public void OnFly(InputAction.CallbackContext context)
@@ -86,5 +84,28 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.instance.PlayHurtClip();
         }
+        if(collision.CompareTag("coin"))
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.Addcoin(1);
+        }
+    }
+    public void HitObstacle()
+    {
+        if (isShieldActive)
+        {
+            AudioManager.instance.PlayHurtClip();
+            isShieldActive = false;
+            shieldVisual.SetActive(false);
+        }
+        else
+        {
+            GameManager.instance.GameOver();
+        }
+    }
+    public void ActivateShield()
+    {
+        isShieldActive = true;
+        shieldVisual.SetActive(true);
     }
 }
